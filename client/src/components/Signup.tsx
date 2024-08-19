@@ -11,7 +11,7 @@ const Signup: React.FC = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post<string>("http://localhost:3000/signup", {
+      const res = await axios.post<string>("http://localhost:8000/signup", {
         email,
         password,
       });
