@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/home.css'
 import { Container,Row,Col } from 'reactstrap'
 import FeaturedTourList from '../components/Featured-tours/FeaturedTourList'
+import MansonryImagesGallery from '../components/Image-gallery/MansonryImagesGallery'
 
 import sigiriya from "../assets/images/sigiriya.jpg"
 import ella from "../assets/images/ella (2).jpg"
@@ -122,6 +123,37 @@ const Home = () => {
     </Container>
    </section>
    {/*==========experience section end======*/}
+
+   {/*==========gallery section start======*/}
+   <section>
+    <Container>
+      <Row>
+        <Col lg='12'>
+        <Subtitle Subtitle={'Gallery'}/>
+        <h2 className='gallery__title'>Visit our customers tour gallery</h2>
+        </Col>
+        <Col lg='12'>
+        <MansonryImagesGallery/>
+        </Col>
+      </Row>
+    </Container>
+   </section>
+   {/*==========gallery section end======*/}
+
+   {/*==========testimonial section start======*/}
+   <section>
+    <Container>
+      <Row>
+        <Col lg='12'>      
+          <Subtitle Subtitle={'Fans LOve'}/>
+          <h2 className='testimonial__title'>
+            What our fans say about us
+          </h2>
+          </Col>
+          </Row>
+          </Container>
+          </section>
+   {/*==========testimonial section end======*/}
   </>
 }
 
