@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Temple of the Tooth",
+    "city": "Kandy",
+    "address": "Sacred City of Kandy",
+    "distance": 100,
+    "price": 50,
+    "maxGroupSize": 20,
+    "desc": "Visit the sacred Temple of the Tooth in the heart of Kandy.",
+    "reviews": [],
+    "photo": "../images/kandy.jpg",
+    "featured": true
+  },
+  {
+    "title": "Galle Fort",
+    "city": "Galle",
+    "address": "Old Town of Galle",
+    "distance": 120,
+    "price": 60,
+    "maxGroupSize": 15,
+    "desc": "Explore the historical Galle Fort, a UNESCO World Heritage Site.",
+    "reviews": [],
+    "photo": "../images/galle (2).jpg",
+    "featured": true
+  },
+  {
+    "title": "Sigiriya Rock Fortress",
+    "city": "Sigiriya",
+    "address": "Central Province",
+    "distance": 150,
+    "price": 75,
+    "maxGroupSize": 10,
+    "desc": "Climb the ancient Sigiriya Rock Fortress, an iconic landmark.",
+    "reviews": [],
+    "photo": "../images/sigiriya.jpg",
+    "featured": true
+  },
+  {
+    "title": "Scenic Train Ride",
+    "city": "Idalgashinna",
+    "address": "Central Highlands",
+    "distance": 180,
+    "price": 40,
+    "maxGroupSize": 25,
+    "desc": "Experience one of the most scenic train rides in the world.",
+    "reviews": [],
+    "photo": "../images/idalgashinna.jpg",
+    "featured": false
+  },
+  {
+    "title": "Bentota Beach",
+    "city": "Bentota",
+    "address": "Southwestern Coast",
+    "distance": 80,
+    "price": 50,
+    "maxGroupSize": 30,
+    "desc": "Relax on the beautiful beaches of Bentota.",
+    "reviews": [],
+    "photo": "../images/madhu-river-bentota-sri.jpg",
+    "featured": false
+  },
+  {
+    "title": "Sacred City of Anuradhapura",
+    "city": "Anuradhapura",
+    "address": "North Central Province",
+    "distance": 200,
+    "price": 65,
+    "maxGroupSize": 15,
+    "desc": "Discover the ancient ruins of the Sacred City of Anuradhapura.",
+    "reviews": [],
+    "photo": "../images/mirisaweti-stupa.jpg",
+    "featured": true
+  }
+]

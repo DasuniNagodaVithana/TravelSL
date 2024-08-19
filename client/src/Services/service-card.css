@@ -15,5 +15,19 @@
   background: var(--secondary-color);
   padding: 0.5rem;
   margin-bottom: 1rem;
+  line-height: 50px;
+}
 
+.service__img img{
+  width: 100px;
+}
+
+.service__item h5{
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.service__item p{
+  font-size: 0.9rem;
+  color: var(--text-color);
 }
