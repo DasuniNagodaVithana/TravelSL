@@ -5,7 +5,7 @@ import FeaturedTourList from '../components/Featured-tours/FeaturedTourList'
 import MansonryImagesGallery from '../components/Image-gallery/MansonryImagesGallery'
 
 import sigiriya from "../assets/images/sigiriya.jpg"
-import yaka from "../assets/images/yaka.jpg"
+import ella from "../assets/images/ella (2).jpg"
 import videoSL from "../assets/images/videoSL.mp4"
 import Subtitle from '../shared/Subtitle'
 import worldImg from "../assets/images/world.png"
@@ -14,6 +14,7 @@ import experirnce from "../assets/images/experience.png"
 import Searchbar from '../shared/Searchbar'
 import ServiceList from '../Services/ServiceList'
 import Testimonial from '../components/Testimonial/Testimonial'
+import Newsletter from '../shared/Newsletter'
 
 const Home = () => {
   return <>
@@ -52,7 +53,7 @@ const Home = () => {
 
         <Col lg='2'>
         <div className='hero__img-box mt-5'>
-        <img src={yaka} alt=''/>
+        <img src={ella} alt=''/>
         </div>
         </Col>
          <Searchbar/>
@@ -158,6 +159,8 @@ const Home = () => {
           </Container>
           </section>
    {/*==========testimonial section end======*/}
+   <Newsletter/>
+   
   </>
 }
 
