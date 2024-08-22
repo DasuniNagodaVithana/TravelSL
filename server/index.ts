@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 import cors from "cors";
 import EmployeeModel from "./src/models/Employee";
 
-
 const app = express();
 app.use(express.json());
 app.use(cors());
