@@ -16,7 +16,7 @@ if (!tour) {
 
 
 
-  const { photo, title, desc, price, reviews, city, distance, maxGroupSize } = tour;
+  const { photo, title, desc, price, reviews,address, city, distance, maxGroupSize } = tour;
 
   return (
     <>
@@ -33,6 +33,15 @@ if (!tour) {
                     <span className="d-flex align-items-center gap-1">
 
                     </span>
+
+              
+
+                  </div >
+                              
+
+                  <div className="tour_extra-details">
+                  <span><i className= "ri-map-pin-user-fill"> </i> {address}</span>
+                    <span><i className= "ri-map-pin-2-line"> </i> {city}</span>
 
                   </div>
                 </div>
