@@ -7,9 +7,6 @@ import TourDetails from '../pages/TourDetails';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import SearchResultList from '../pages/SearchResultList';
-import ForgotPassword from '../pages/ForgotPassword';
-import ResetPassword from '../pages/ResetPassword';
-
 
 const Routers = () => {
   return (
@@ -21,8 +18,6 @@ const Routers = () => {
       <Route path='/login' element={<Login/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/tours/search' element={<SearchResultList/>}/>
-      <Route path='/forgot-password' element={<ForgotPassword/>}/>
-      <Route path='/reset-password/:token' element={<ResetPassword/>}/>
     </Routes>
   )
 }
