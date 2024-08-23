@@ -66,9 +66,7 @@ const Login: React.FC = () => {
                     </button>
                 </form>
                 <p className="mt-3 text-center text-decoration-underline" onClick={navigateToRegister}>
-                    Don't Have an Account?
-                    <br></br>
-                    <Link to="/forgot-password">Forgot Password</Link>
+                    Don't Have an Account
                 </p>
                 <Link to="/register" className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none d-none">
                     Sign Up
