@@ -10,6 +10,7 @@ import SearchResultList from '../pages/SearchResultList';
 import ForgotPassword from '../pages/ForgotPassword';
 import ResetPassword from '../pages/ResetPassword';
 import About from '../pages/About';
+import UserProfile from '../pages/UserProfile';
 
 
 const Routers = () => {
@@ -25,6 +26,7 @@ const Routers = () => {
       <Route path='/forgot-password' element={<ForgotPassword/>}/>
       <Route path='/reset-password/:token' element={<ResetPassword/>}/>
       <Route path='/about' element={<About/>}/>
+      <Route path='/user' element={<UserProfile/>}/>
     </Routes>
   )
 }
