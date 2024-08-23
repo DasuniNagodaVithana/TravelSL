@@ -3,6 +3,7 @@ import "../styles/tour-details.css";
 import {Container,Row,Col,Form,ListGroup} from 'reactstrap' ;
 import {useParams} from "react-router-dom";
 import tourData from "../assets/data/tours";
+// import Booking from '../components/Booking/Booking';
 
 const TourDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -37,6 +38,8 @@ if (!tour) {
                 </div>
               </div>
             </Col>
+
+           
           </Row>
         </Container>
       </section>
