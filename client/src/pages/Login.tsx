@@ -28,7 +28,7 @@ const Login: React.FC = () => {
 
     // Define a function to navigate to the register page
     const navigateToRegister = () => {
-        navigate('/forgot-password');
+        navigate('/register');
     };
 
     return (
