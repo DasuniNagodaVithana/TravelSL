@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import EmployeeModel from "./src/models/Employee";
+import SubscriptionModel from "./src/models/Subscription"; // Import the Subscription model
 
 const app = express();
 app.use(express.json());
@@ -68,6 +69,29 @@ app.post("/forgot-password", (req: Request, res: Response) => {
         res.status(500).json({ Status: "Error", error: "An unknown error occurred" });
       }
     });
+});
+
+// Subscription route
+app.post("/subscribe", async (req: Request, res: Response) => {
+  const { email } = req.body;
+  if (!email) {
+    return res.status(400).json({ Status: "Error", message: "Email is required" });
+  }
+
+  try {
+    const existingSubscription = await SubscriptionModel.findOne({ email: email });
+    if (existingSubscription) {
+      return res.json({ Status: "Error", message: "Email already subscribed" });
+    }
+    await SubscriptionModel.create({ email });
+    res.json({ Status: "Success", message: "Subscription successful" });
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      res.status(500).json({ Status: "Error", error: err.message });
+    } else {
+      res.status(500).json({ Status: "Error", error: "An unknown error occurred" });
+    }
+  }
 });
 
 app.listen(3001, () => {
