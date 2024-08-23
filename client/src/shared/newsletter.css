@@ -32,13 +32,17 @@
 }
 
 .newsletter__input input{
+  flex: 1;
   border: none;
   font-size: 1rem;
   color: var(--heading-color);
+  padding: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .newsletter__input input:focus{
   outline: none;
+  
 }
 
 .newsletter__btn {
@@ -52,4 +56,12 @@
   color: var(--heading-color);
   font-size: 1.1rem;
 
+}
+/* Add these styles to your newsletter.css or a separate CSS file */
+.Toastify__toast--success {
+  background-color: #4CAF50; /* Green */
+}
+
+.Toastify__toast--error {
+  background-color: #f44336; /* Red */
 }

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { Container, Row, Button } from 'reactstrap';
 import { NavLink, Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
@@ -56,6 +56,9 @@ const Header = () => {
                 <Button className='btn primary__btn'>
                   <Link to='/register'>Register</Link>
                 </Button>
+                <Link to='/user'>
+                  <i className='ri-user-fill' style={{ fontSize: '24px', color: '#333' }}></i>
+                </Link>
               </div>
               <span className='mobile__menu'>
                 <i className='ri-menu-fill'></i>

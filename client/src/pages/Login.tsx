@@ -3,30 +3,35 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
-    // Define state with proper types
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const [error, setError] = useState<string | null>(null); // State to store error message
     const navigate = useNavigate();
 
-    // Define handleSubmit with the event type
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        axios.post('http://localhost:3001/login', { email, password })
-        .then(res => {
-          console.log(res);
-          if(res.data.Status === "Success") {
-            if(res.data.role === "admin"){
-              navigate('/home')
+        try {
+            const res = await axios.post('http://localhost:3001/login', { email, password });
+            console.log(res);
+            
+            // Assuming the response data contains a message and status
+            const { Status, role } = res.data;
+
+            if (Status === "Success") {
+                if (role === "admin") {
+                    navigate('/home'); // Navigate to home page for admin
+                } else {
+                    navigate('/');     // Navigate to home page for users
+                }
             } else {
-              navigate('/');
-          }
- 
-          } 
-            })
-            .catch(err => console.log(err));
+                setError("Login failed: " + Status); // Show error message
+            }
+        } catch (err) {
+            console.error(err);
+            setError("An error occurred. Please try again."); // Generic error message
+        }
     };
 
-    // Define a function to navigate to the register page
     const navigateToRegister = () => {
         navigate('/register');
     };
@@ -65,9 +70,10 @@ const Login: React.FC = () => {
                         Login
                     </button>
                 </form>
+                {error && <p className="text-danger mt-3">{error}</p>} {/* Display error message if present */}
                 <p className="mt-3 text-center text-decoration-underline" onClick={navigateToRegister}>
                     Don't Have an Account?
-                    <br></br>
+                    <br />
                     <Link to="/forgot-password">Forgot Password</Link>
                 </p>
                 <Link to="/register" className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none d-none">
