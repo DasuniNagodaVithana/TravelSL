@@ -34,13 +34,17 @@ if (!tour) {
 
                     </span>
 
+                    <span><i className="ri-map-pin-fill"></i> {address}</span>
+
               
+
+                 
 
                   </div >
                               
 
                   <div className="tour_extra-details">
-                  <span><i className= "ri-map-pin-user-fill"> </i> {address}</span>
+                  
                     <span><i className= "ri-map-pin-2-line"> </i> {city}</span>
 
                   </div>
