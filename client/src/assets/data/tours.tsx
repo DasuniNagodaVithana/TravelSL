@@ -14,6 +14,7 @@ interface Tour {
   id: string;
   title: string;
   city: string;
+  address:string;
   distance: number;
   price: number;
   maxGroupSize: number;
@@ -29,6 +30,7 @@ const tours: Tour[] = [
     id: "01",
     title: "Temple of the Tooth",
     city: "Kandy",
+    address: "Somewhere",
     distance: 100,
     price: 50,
     maxGroupSize: 20,
@@ -47,6 +49,7 @@ const tours: Tour[] = [
     id: "02",
     title: "Galle Fort",
     city: "Galle",
+    address: "Somewhere",
     distance: 120,
     price: 60,
     maxGroupSize: 15,
@@ -65,6 +68,7 @@ const tours: Tour[] = [
     id: "03",
     title: "Sigiriya Rock Fortress",
     city: "Sigiriya",
+    address: "Somewhere",
     distance: 150,
     price: 75,
     maxGroupSize: 10,
@@ -83,6 +87,7 @@ const tours: Tour[] = [
     id: "04",
     title: "Scenic Train Ride",
     city: "Idalgashinna",
+    address: "Somewhere",
     distance: 180,
     price: 40,
     maxGroupSize: 25,
@@ -98,6 +103,7 @@ const tours: Tour[] = [
     id: "05",
     title: "Bentota Beach",
     city: "Bentota",
+    address: "Somewhere",
     distance: 80,
     price: 50,
     maxGroupSize: 30,
@@ -116,6 +122,7 @@ const tours: Tour[] = [
     id: "06",
     title: "Sacred City of Anuradhapura",
     city: "Anuradhapura",
+    address: "Somewhere",
     distance: 200,
     price: 65,
     maxGroupSize: 15,
