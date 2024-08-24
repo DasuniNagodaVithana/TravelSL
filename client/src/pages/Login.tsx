@@ -14,10 +14,19 @@ const Login: React.FC = () => {
             const res = await axios.post('http://localhost:3001/login', { email, password });
             console.log(res);
             
-            // Assuming the response data contains a message and status
-            const { Status, role } = res.data;
-
+            // Assuming the response data contains Status, role, and userId
+            const { Status, role, userId } = res.data;
+    
             if (Status === "Success") {
+                // Store the user ID in session storage
+                if (userId) {
+                    sessionStorage.setItem('userId', userId);
+    
+                    // Print the user ID to the console
+                    console.log('User ID stored in session:', userId);
+                }
+    
+                // Navigate based on user role
                 if (role === "admin") {
                     navigate('/home'); // Navigate to home page for admin
                 } else {
@@ -31,6 +40,7 @@ const Login: React.FC = () => {
             setError("An error occurred. Please try again."); // Generic error message
         }
     };
+    
 
     const navigateToRegister = () => {
         navigate('/register');
