@@ -3,13 +3,12 @@ import { Card, CardBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import 'remixicon/fonts/remixicon.css';
 import './tour-card.css';
-import calculateAvgRating from '../utils/avgRating';
 
 interface Tour {
   id: string;
   title: string;
   city: string;
-  photo: string;
+  file: string;
   price: number;
   featured: boolean;
   avgRating: number;
@@ -21,18 +20,13 @@ interface TourCardProps {
 }
 
 const TourCard: React.FC<TourCardProps> = ({ tour }) => {
-  const { id, title, city, photo, price, featured, reviews } = tour;
-
-  const{totalRating,avgRating}=calculateAvgRating(reviews)
-
-  
-
+  const { id, title, city, file, price, featured, reviews,avgRating } = tour;
 
   return (
     <div className='tour__card'>
       <Card>
         <div className='tour__img'>
-          <img src={photo} alt={`${title} image`} />
+          <img src={file} alt={`${title} image`} />
           {featured && <span>Featured</span>}
         </div>
         <CardBody>
@@ -41,7 +35,7 @@ const TourCard: React.FC<TourCardProps> = ({ tour }) => {
               <i className="ri-map-pin-line"></i> {city}
             </span>
             <span className='tour__rating d-flex align-items-center gap-1'>
-              <i className="ri-star-fill"></i> {avgRating ===0?null:avgRating} {totalRating===0?('Not Rated' ):(<span>({reviews.length})</span>)} 
+              <i className="ri-star-fill"></i> {avgRating ===0?('Not rated'):avgRating} 
             </span>
           </div>
           <h5 className="tour__title">
