@@ -12,7 +12,7 @@ import { Container, Row, Col } from 'reactstrap';
 
 
 interface Tour {
-  id: string;
+  _id: string;
   title: string;
   city: string;
   file: string;
@@ -73,7 +73,7 @@ const Tours: React.FC = () => {
   <Container>
     <Row>
       {tours.map((tour) => (
-        <Col lg='3' className='mb-4' key={tour.id}>
+        <Col lg='3' className='mb-4' key={tour._id}>
           <TourCard tour={tour} />
         </Col>
       ))}

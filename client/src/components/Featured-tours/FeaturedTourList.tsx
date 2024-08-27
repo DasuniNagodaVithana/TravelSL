@@ -26,7 +26,7 @@ import { Col } from 'reactstrap';
 import axios from 'axios';
 
 interface Tour {
-  id: string;
+  _id: string;
   title: string;
   city: string;
   file: string;
@@ -67,7 +67,7 @@ const FeaturedTourList: React.FC = () => {
   return (
     <>
       {tours.map((tour) => (
-        <Col lg='3' className='mb-4' key={tour.id}>
+        <Col lg='3' className='mb-4' key={tour._id}>
           <TourCard tour={tour} />
         </Col>
       ))}

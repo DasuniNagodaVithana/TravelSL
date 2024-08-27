@@ -174,6 +174,31 @@ app.get("/tours/featured/:featured", async (req: Request, res: Response) => {
 });
 
 /////////////////////////////////////////////////////////////////////////////////////
+//Tour Details//
+app.get('/tours/:_id', async (req: Request, res: Response) => {
+  const { _id } = req.params;
+  console.log(`Fetching tour with ID: ${_id}`); // Log the ID
+
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
+    return res.status(400).json({ Status: "Error", message: "Invalid tour ID format" });
+  }
+
+  try {
+    const tour = await TourScehmaModel.findById(_id);
+    if (!tour) {
+      return res.status(404).json({ Status: "Error", message: "Tour not found" });
+    }
+    res.status(200).json(tour);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      res.status(500).json({ Status: "Error", error: err.message });
+    } else {
+      res.status(500).json({ Status: "Error", error: "An unknown error occurred" });
+    }
+  }
+});
+
+
 
 
 
