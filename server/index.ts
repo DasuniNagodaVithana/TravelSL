@@ -4,6 +4,8 @@ import cors from "cors";
 import EmployeeModel from "./src/models/Employee";
 import SubscriptionModel from "./src/models/Subscription";
 import TourScehmaModel from "./src/models/Tours.schema";
+import BookingModel from "./src/models/Booking.schema";
+import userBookingsRouter from './src/routers/userBookings';
 import aws from "aws-sdk";
 import multer from "multer"; 
 import multerS3 from "multer-s3";
@@ -14,6 +16,7 @@ import 'dotenv/config';
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: 'http://localhost:3003' })); // Allow requests from port 3003
+app.use('/userBookings', userBookingsRouter);
 
 // Connect to MongoDB
 mongoose.connect("mongodb+srv://kariyawasampawanya:4yWSfNNL5UbMC01z@cluster0.lddeo.mongodb.net/")
@@ -197,6 +200,18 @@ app.get('/tours/:_id', async (req: Request, res: Response) => {
     }
   }
 });
+
+// Route to get all tours
+app.get('/tours', async (req, res) => {
+  try {
+    const tours = await TourScehmaModel.find(); // Fetch all tours from the database
+    res.json(tours);
+  } catch (err) {
+    console.error('Error fetching tours:', err);
+    res.status(500).json({ message: 'Failed to fetch tours' });
+  }
+});
+
 
 
 
