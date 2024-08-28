@@ -217,6 +217,13 @@ app.put("/profile", (req: Request, res: Response) => {
     })
     .catch((err: unknown) => {
       if (err instanceof Error) {
+        res.status(500).json({ Status: "Error", error: err.message });
+      } else {
+        res.status(500).json({ Status: "Error", error: "An unknown error occurred" });
+      }
+    });
+});
+ 
 
 
 //////////////////////////////////////////////////////////////
@@ -271,13 +278,10 @@ app.post(
         res.status(500).json({ Status: "Error", error: "An unknown error occurred" });
       }
 
-    });
+    }
 });
 
-
-    }
-  }
-);
+ 
 
 // Route to fetch tours based on the featured property
 app.get("/tours/featured/:featured", async (req: Request, res: Response) => {
@@ -331,12 +335,6 @@ app.get('/tours', async (req, res) => {
     res.status(500).json({ message: 'Failed to fetch tours' });
   }
 });
-
-
-
-
-
-
 
 
 app.listen(3001, () => {
