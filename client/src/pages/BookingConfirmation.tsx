@@ -37,7 +37,7 @@ const BookingConfirmation: React.FC = () => {
     }
 
     if (details.email && details.email !== 'No Email') {
-      axios.post('http://localhost:3001/send-booking-email', details)
+      axios.post('http://43.205.195.152:3001/send-booking-email', details)
         .then(() => setEmailSent(true))
         .catch(error => console.error('Error sending email:', error));
     }

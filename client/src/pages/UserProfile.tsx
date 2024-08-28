@@ -15,7 +15,7 @@ const UserProfile = () => {
   useEffect(() => {
     const userId = sessionStorage.getItem('userId');
     if (userId) {
-      axios.get(`http://localhost:3001/profile?userId=${userId}`)
+      axios.get(`http://43.205.195.152:3001/profile?userId=${userId}`)
         .then(response => {
           if (response.data.Status === 'Success') {
             setUserData(response.data.user);
@@ -43,7 +43,7 @@ const UserProfile = () => {
   const handleSave = () => {
     const userId = sessionStorage.getItem('userId');
     if (userId) {
-      axios.put('http://localhost:3001/profile', { userId, ...userData })
+      axios.put('http://43.205.195.152:3001/profile', { userId, ...userData })
         .then(response => {
           if (response.data.Status === 'Success') {
             setSuccessMessage('Profile updated successfully.');

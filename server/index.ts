@@ -20,7 +20,7 @@ import 'dotenv/config';
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: 'http://localhost:3003' })); // Allow requests from port 3003
+app.use(cors({ origin: 'http://43.205.195.152:3003' })); // Allow requests from port 3003
 app.use('/userBookings', userBookingsRouter);
 
 // Connect to MongoDB
@@ -111,7 +111,7 @@ app.post("/forgot-password", (req: Request, res: Response) => {
           subject: 'Password Reset',
           text: `You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n` +
             `Please click on the following link, or paste this into your browser to complete the process:\n\n` +
-            `http://localhost:3003/reset-password/${resetToken}\n\n` +
+            `http://43.205.195.152:3003/reset-password/${resetToken}\n\n` +
             `If you did not request this, please ignore this email and your password will remain unchanged.\n`
         };
 

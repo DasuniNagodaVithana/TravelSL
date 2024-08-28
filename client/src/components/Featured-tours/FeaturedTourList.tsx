@@ -44,7 +44,7 @@ const FeaturedTourList: React.FC = () => {
   useEffect(() => {
     const fetchFeaturedTours = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/tours/featured/true');
+        const response = await axios.get('http://43.205.195.152:3001/tours/featured/true');
         setTours(response.data);
       } catch (err) {
         setError('Failed to fetch featured tours');

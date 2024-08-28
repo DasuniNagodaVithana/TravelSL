@@ -45,7 +45,7 @@ const Tours: React.FC = () => {
   useEffect(() => {
     const fetchTours = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/tours');
+        const response = await axios.get('http://43.205.195.152:3001/tours');
         setTours(response.data);
         setFilteredTours(response.data);
 

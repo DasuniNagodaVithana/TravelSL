@@ -11,7 +11,7 @@ const Login: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:3001/login', { email, password });
+            const res = await axios.post('http://43.205.195.152:3001/login', { email, password });
             console.log(res);
             
             // Assuming the response data contains Status, role, and userId

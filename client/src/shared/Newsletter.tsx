@@ -12,7 +12,7 @@ const Newsletter: React.FC = () => {
 
   const handleSubscribe = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/subscribe', { email });
+      const response = await axios.post('http://43.205.195.152:3001/subscribe', { email });
       if (response.data.Status === 'Success') {
         setMessage('Thank you for subscribing! We are excited to share the latest travel tips, updates, and special offers with you.');
       } else {
