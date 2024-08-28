@@ -47,9 +47,13 @@ const Login: React.FC = () => {
     };
 
     return (
-        <div className="d-flex justify-content-center align-items-center vh-100" style={{ position: 'relative', background: '#2E2E2D', overflow: 'hidden', border: '1px black solid'}}>
-            <div className="bg-white p-3 rounded w-25">
-                <h2>Login</h2>
+        <div className="d-flex justify-content-center align-items-center vh-100" style={{ position: 'relative', background: 'white', overflow: 'hidden', border: '1px black solid' }}>
+            <div className="p-3 rounded w-25" style={{
+                position: 'relative',
+                background: '#d8a45b', // Add your gradient colors here
+                overflow: 'hidden',
+            }}>
+                <h2 className="text-center" style={{ color: '#ffffff', fontWeight: 800 }}>Login</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="email">
@@ -60,7 +64,7 @@ const Login: React.FC = () => {
                             placeholder="Enter email"
                             autoComplete="off"
                             name="email"
-                            className="form-control rounded-0"
+                            className="form-control rounded-10"
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
@@ -72,23 +76,26 @@ const Login: React.FC = () => {
                             type="password"
                             placeholder="Enter Password"
                             name="password"
-                            className="form-control rounded-0"
+                            className="form-control rounded-10"
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <button type="submit" className="btn btn-success w-100 rounded-0">
-                        Login
-                    </button>
+                    {error && <p className="text-danger text-center">{error}</p>} {/* Display error message */}
+                    <div className="d-flex justify-content-center">
+                        <button
+                            type="submit"
+                            className="btn btn-success w-50 rounded-10"
+                        >
+                            Login
+                        </button>
+                    </div>
                 </form>
-                {error && <p className="text-danger mt-3">{error}</p>} {/* Display error message if present */}
-                <p className="mt-3 text-center text-decoration-underline" onClick={navigateToRegister}>
+                <p className="mt-3 text-center text-decoration-underline" style={{ color: '#ffffff', fontWeight: 600 }} onClick={navigateToRegister}>
                     Don't Have an Account?
-                    <br />
-                    <Link to="/forgot-password">Forgot Password</Link>
                 </p>
-                <Link to="/register" className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none d-none">
-                    Sign Up
-                </Link>
+                <p className="text-center">
+                    <Link to="/forgot-password" className="text-decoration-none" style={{ color: '#ffffff', fontWeight: 300 }}>Forgot Password?</Link>
+                </p>
             </div>
         </div>
     );
