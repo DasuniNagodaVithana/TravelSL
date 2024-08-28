@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CommonSection from '../shared/CommonSection';
 import axios from 'axios';
-
 import "../styles/tour.css";
 import TourCard from './../shared/TourCard';
 import SearchBar from './../shared/Searchbar';
@@ -37,18 +36,19 @@ const Tours: React.FC = () => {
   const [pageCount, setPageCount] = useState<number>(0);
   const [page, setPage] = useState<number>(0);
   const [tours, setTours] = useState<Tour[]>([]);
+  const [filteredTours, setFilteredTours] = useState<Tour[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const toursPerPage = 12; // Number of tours to display per page
+  const toursPerPage = 12;
 
   useEffect(() => {
     const fetchTours = async () => {
       try {
         const response = await axios.get('http://localhost:3001/tours');
         setTours(response.data);
+        setFilteredTours(response.data);
 
-        // Calculate the number of pages based on the toursPerPage value
         const totalTours = response.data.length;
         const pages = Math.ceil(totalTours / toursPerPage);
         setPageCount(pages);
@@ -61,6 +61,28 @@ const Tours: React.FC = () => {
 
     fetchTours();
   }, [toursPerPage]);
+
+  const handleSearch = (location: string, distance: string, maxGroupSize: string) => {
+    let filtered = tours;
+
+    if (location) {
+      filtered = filtered.filter(tour => tour.city.toLowerCase().includes(location.toLowerCase()));
+    }
+
+    if (distance) {
+      const distanceNum = parseInt(distance, 10);
+      filtered = filtered.filter(tour => tour.distance <= distanceNum);
+    }
+
+    if (maxGroupSize) {
+      const maxGroupSizeNum = parseInt(maxGroupSize, 10);
+      filtered = filtered.filter(tour => tour.maxGroupSize >= maxGroupSizeNum);
+    }
+
+    setFilteredTours(filtered);
+    setPage(0); // Reset to the first page
+    setPageCount(Math.ceil(filtered.length / toursPerPage));
+  };
 
   if (loading) {
     return <p>Loading...</p>;
@@ -76,7 +98,7 @@ const Tours: React.FC = () => {
       <section>
         <Container>
           <Row>
-            <SearchBar />
+            <SearchBar onSearch={handleSearch} />
           </Row>
         </Container>
       </section>
@@ -84,7 +106,7 @@ const Tours: React.FC = () => {
       <section className='pt-0'>
         <Container>
           <Row>
-            {tours.slice(page * toursPerPage, (page + 1) * toursPerPage).map((tour) => (
+            {filteredTours.slice(page * toursPerPage, (page + 1) * toursPerPage).map((tour) => (
               <Col lg='3' className='mb-4' key={tour._id}>
                 <TourCard tour={tour} />
               </Col>

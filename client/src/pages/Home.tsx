@@ -56,7 +56,7 @@ const Home = () => {
         <img src={ella} alt=''/>
         </div>
         </Col>
-         <Searchbar/>
+         
       </Row>
     </Container>
   </section>

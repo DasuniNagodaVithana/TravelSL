@@ -336,6 +336,30 @@ app.get('/tours', async (req, res) => {
   }
 });
 
+//Search Results 
+app.get('/tours/search', async (req, res) => {
+  try {
+    const { location, distance, maxGroupSize } = req.query;
+
+    let filters: any = {};
+
+    if (location) {
+      filters.city = { $regex: location, $options: 'i' }; // Case-insensitive match
+    }
+    if (distance) {
+      filters.distance = { $lte: Number(distance) };
+    }
+    if (maxGroupSize) {
+      filters.maxGroupSize = { $gte: Number(maxGroupSize) };
+    }
+
+    const tours = await TourScehmaModel.find(filters);
+    res.json(tours);
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 
 app.listen(3001, () => {
   console.log("Server is running on port 3001");

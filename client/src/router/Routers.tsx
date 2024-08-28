@@ -23,7 +23,7 @@ const Routers = () => {
       <Route path="/tours/:_id" element={<TourDetails />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/tours/search" element={<SearchResultList />} />
+      {/*<Route path="/search-results" element={<SearchResultList />} />*/}
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password/:token" element={<ResetPassword />} />
       <Route path="/about" element={<About />} />
