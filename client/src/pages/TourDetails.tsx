@@ -5,7 +5,7 @@ import Booking from '../components/Booking/Booking';
 import avatar from '../assets/images/avatar.png';
 import '../styles/tour-details.css';
 import axios from 'axios';
-import { FaCheck, FaTimes, FaClock, FaUtensils, FaBus, FaMapMarkerAlt, FaCity,FaUser, } from 'react-icons/fa';
+import { FaCheck, FaTimes, FaClock, FaUtensils, FaBus, FaMapMarkerAlt, FaCity, FaUser, FaStar } from 'react-icons/fa';
 
 interface IReview {
   name: string;
@@ -159,11 +159,11 @@ const TourDetails: React.FC = () => {
                     </div>
                   </Col>
                   <Col md="4">
-  <div className="detail__card">
-    <FaUser />
-    <span>Tour Guide: {tourGuide ? 'Available' : 'Not Available'}</span>
-  </div>
-</Col>
+                    <div className="detail__card">
+                      <FaUser />
+                      <span>Tour Guide: {tourGuide ? 'Available' : 'Not Available'}</span>
+                    </div>
+                  </Col>
                 </Row>
                 <div className="tour__activities">
                   <h5>Activities</h5>
@@ -180,21 +180,13 @@ const TourDetails: React.FC = () => {
                 <h4> Reviews ({reviews.length} reviews) </h4>
                 <Form onSubmit={submitHandler}>
                   <div className="d-flex align-items-center gap-3 mb-4 rating__group">
-                    <span onClick={() => setTourRating(1)}>
-                      1 <i className="ri-star-s-fill"></i>
-                    </span>
-                    <span onClick={() => setTourRating(2)}>
-                      2 <i className="ri-star-s-fill"></i>
-                    </span>
-                    <span onClick={() => setTourRating(3)}>
-                      3 <i className="ri-star-s-fill"></i>
-                    </span>
-                    <span onClick={() => setTourRating(4)}>
-                      4 <i className="ri-star-s-fill"></i>
-                    </span>
-                    <span onClick={() => setTourRating(5)}>
-                      5 <i className="ri-star-s-fill"></i>
-                    </span>
+                    {[...Array(5)].map((_, index) => (
+                      <span key={index} onClick={() => setTourRating(index + 1)}>
+                        <FaStar
+                          color={tourRating && tourRating > index ? '#FFD700' : '#ccc'}
+                        />
+                      </span>
+                    ))}
                   </div>
                   <div className="review__input">
                     <input type="text" ref={reviewMsgRef} placeholder="Share your thoughts" />
@@ -213,7 +205,7 @@ const TourDetails: React.FC = () => {
                             <h5>{review.name}</h5>
                             <div className="d-flex align-items-center gap-1">
                               {[...Array(review.rating)].map((_, i) => (
-                                <i className="ri-star-s-fill" key={i}></i>
+                                <FaStar color="#FFD700" key={i} />
                               ))}
                             </div>
                           </div>
