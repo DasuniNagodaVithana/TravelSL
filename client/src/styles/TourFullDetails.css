@@ -1,0 +1,33 @@
+/* src/pages/TourFullDetails.css */
+.tour-full-details {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.tour-full-details img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.tour-full-details h1 {
+  margin-bottom: 20px;
+}
+
+.tour-full-details p {
+  margin: 10px 0;
+}
+
+.tour-full-details h3 {
+  margin-top: 20px;
+}
+
+.tour-full-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.tour-full-details li {
+  margin-bottom: 10px;
+}

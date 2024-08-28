@@ -1,5 +1,5 @@
-import React from 'react'
-import {Routes,Route,Navigate} from 'react-router-dom'
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from '../pages/Home';
 import Tours from '../pages/Tours';
@@ -11,24 +11,24 @@ import ForgotPassword from '../pages/ForgotPassword';
 import ResetPassword from '../pages/ResetPassword';
 import About from '../pages/About';
 import UserProfile from '../pages/UserProfile';
-
+import TourFullDetails from '../pages/TourFullDetails';
 
 const Routers = () => {
   return (
     <Routes>
-      <Route path='/' element={<Navigate to='/home'/>}/>
-      <Route path='/home' element={<Home/>}/>
-      <Route path='/tours' element={<Tours/>}/>
-      <Route path='/tours/:id' element={<TourDetails/>}/>
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/register' element={<Register/>}/>
-      <Route path='/tours/search' element={<SearchResultList/>}/>
-      <Route path='/forgot-password' element={<ForgotPassword/>}/>
-      <Route path='/reset-password/:token' element={<ResetPassword/>}/>
-      <Route path='/about' element={<About/>}/>
-      <Route path='/user' element={<UserProfile/>}/>
+      <Route path="/" element={<Navigate to="/home" />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/tours" element={<Tours />} />
+      <Route path="/tours/:_id" element={<TourDetails />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/tours/search" element={<SearchResultList />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password/:token" element={<ResetPassword />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/user" element={<UserProfile />} />
     </Routes>
-  )
-}
+  );
+};
 
-export default Routers
+export default Routers;

@@ -41,7 +41,7 @@ const Home = () => {
 
         <Col lg='2'>
         <div className='hero__img-box'>
-        <img src={sigiriya} alt=''/>
+        <img src={'https://tours-s3-images.s3.eu-north-1.amazonaws.com/sigiriya.jpg'} alt=''/>
         </div>
         </Col>
 
@@ -80,7 +80,7 @@ const Home = () => {
         <Subtitle Subtitle={'Explore'}/>
         <h2 className='featured__tour-title'>Our featured tours</h2>
         </Col>
-        <FeaturedTourList/>
+        <FeaturedTourList />
       </Row>
     </Container>
   </section>

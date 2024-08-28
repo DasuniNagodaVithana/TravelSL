@@ -97,7 +97,7 @@ const tours: Tour[] = [
     ],
     avgRating: 4.6,
     photo: idalgashinnaImg,
-    featured: true,
+    featured: false,
   },
   {
     id: "05",

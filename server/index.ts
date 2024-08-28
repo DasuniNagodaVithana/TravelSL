@@ -7,9 +7,21 @@ import bcrypt from "bcrypt";  // Import bcrypt
 import EmployeeModel from "./src/models/Employee";
 import SubscriptionModel from "./src/models/Subscription";
 
+import TourScehmaModel from "./src/models/Tours.schema";
+import BookingModel from "./src/models/Booking.schema";
+import userBookingsRouter from './src/routers/userBookings';
+import aws from "aws-sdk";
+import multer from "multer"; 
+import multerS3 from "multer-s3";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import 'dotenv/config';
+
+
+
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: 'http://localhost:3003' })); // Allow requests from port 3003
+app.use('/userBookings', userBookingsRouter);
 
 // Connect to MongoDB
 mongoose.connect("mongodb+srv://kariyawasampawanya:4yWSfNNL5UbMC01z@cluster0.lddeo.mongodb.net/")
@@ -171,6 +183,7 @@ app.post("/subscribe", async (req: Request, res: Response) => {
   }
 });
 
+
 app.get("/profile", (req: Request, res: Response) => {
   const userId = req.query.userId as string;  // Use query parameter for user ID
 
@@ -204,12 +217,125 @@ app.put("/profile", (req: Request, res: Response) => {
     })
     .catch((err: unknown) => {
       if (err instanceof Error) {
+
+
+//////////////////////////////////////////////////////////////
+
+const s3 = new S3Client({
+  region: process.env.S3_BUCKET_REGION,
+  credentials: {
+    accessKeyId: process.env.S3_ACCESS_KEY as string,
+    secretAccessKey: process.env.S3_SECRET_ACCESS_KEY as string,
+  },
+});
+
+const upload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: process.env.S3_BUCKET_NAME as string,
+    acl: "public-read",
+    key: function (req: Request, file: Express.Multer.File, cb: Function) {
+      const fileName = `${Date.now()}-${file.originalname}`;
+      cb(null, fileName);
+    },
+  }),
+});
+
+
+// upload the tour images to mongodb ans s3 bucket
+app.post(
+  "/tours",
+  upload.single("file"),
+  async (req: Request, res: Response) => {
+    const { body, file } = req;
+    console.log(req);
+    if (!file) {
+      return res.status(400).json({ Status: "Error", message: "Photo is required" });
+    }
+
+    try {
+      const newTour = new TourScehmaModel({
+        ...body,
+        file: (file as any).location, // The location of the uploaded image in S3
+      });
+
+      await newTour.save();
+
+      res.status(201).json({ Status: "Success", tour: newTour });
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.log("review doesn't work")
+
         res.status(500).json({ Status: "Error", error: err.message });
       } else {
         res.status(500).json({ Status: "Error", error: "An unknown error occurred" });
       }
+
     });
 });
+
+
+    }
+  }
+);
+
+// Route to fetch tours based on the featured property
+app.get("/tours/featured/:featured", async (req: Request, res: Response) => {
+  const { featured } = req.params;
+  const isFeatured = featured === 'true'; // Convert string to boolean
+
+  try {
+    const tours = await TourScehmaModel.find({ featured: isFeatured });
+    res.status(200).json(tours);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      res.status(500).json({ Status: "Error", error: err.message });
+    } else {
+      res.status(500).json({ Status: "Error", error: "An unknown error occurred" });
+    }
+  }
+});
+
+/////////////////////////////////////////////////////////////////////////////////////
+//Tour Details//
+app.get('/tours/:_id', async (req: Request, res: Response) => {
+  const { _id } = req.params;
+  console.log(`Fetching tour with ID: ${_id}`); // Log the ID
+
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
+    return res.status(400).json({ Status: "Error", message: "Invalid tour ID format" });
+  }
+
+  try {
+    const tour = await TourScehmaModel.findById(_id);
+    if (!tour) {
+      return res.status(404).json({ Status: "Error", message: "Tour not found" });
+    }
+    res.status(200).json(tour);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      res.status(500).json({ Status: "Error", error: err.message });
+    } else {
+      res.status(500).json({ Status: "Error", error: "An unknown error occurred" });
+    }
+  }
+});
+
+// Route to get all tours
+app.get('/tours', async (req, res) => {
+  try {
+    const tours = await TourScehmaModel.find(); // Fetch all tours from the database
+    res.json(tours);
+  } catch (err) {
+    console.error('Error fetching tours:', err);
+    res.status(500).json({ message: 'Failed to fetch tours' });
+  }
+});
+
+
+
+
+
 
 
 
