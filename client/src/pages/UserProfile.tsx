@@ -60,9 +60,13 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="user-profile-container">
-      <h2 className="text-center">User Profile</h2>
-      {error && <p className="text-danger text-center">{error}</p>}
+    <div className="user-profile-container" style={{
+      position: 'relative',
+      background: '#d8a45b', // Add your gradient colors here
+      overflow: 'hidden',
+  }}>
+      <h2 className="text-center" style={{ color: '#ffffff', fontWeight: 800 }}>User Profile</h2>
+      {error && <p className="text-danger text-center" >{error}</p>}
       {successMessage && <p className="text-success text-center">{successMessage}</p>}
       <div className="user-profile-form">
         <div className="form-group">

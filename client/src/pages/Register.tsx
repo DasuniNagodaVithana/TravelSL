@@ -26,9 +26,14 @@ const Register: React.FC = () => {
     };
 
     return (
-        <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
-            <div className="bg-white p-3 rounded w-25">
-                <h2>Register</h2>
+        <div
+            className="d-flex justify-content-center align-items-center vh-100">
+            <div className="p-3 rounded w-25" style={{
+                position: 'relative',
+                background: '#d8a45b', // Add your gradient colors here
+                overflow: 'hidden',
+            }}>
+                <h2 className="text-center" style={{ color: '#ffffff', fontWeight: 800 }}>Register</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="name">
@@ -39,7 +44,7 @@ const Register: React.FC = () => {
                             placeholder="Enter Name"
                             autoComplete="off"
                             name="name"
-                            className="form-control rounded-0"
+                            className="form-control rounded-10"
                             onChange={(e) => setName(e.target.value)}
                         />
                     </div>
@@ -52,7 +57,7 @@ const Register: React.FC = () => {
                             placeholder="Enter email"
                             autoComplete="off"
                             name="email"
-                            className="form-control rounded-0"
+                            className="form-control rounded-10"
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
@@ -64,15 +69,20 @@ const Register: React.FC = () => {
                             type="password"
                             placeholder="Enter Password"
                             name="password"
-                            className="form-control rounded-0"
+                            className="form-control rounded-10"
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <button type="submit" className="btn btn-success w-100 rounded-0">
-                        Register
-                    </button>
+                    <div className="d-flex justify-content-center">
+                        <button
+                            type="submit"
+                            className="btn btn-success w-50 rounded-10"
+                        >
+                            Register
+                        </button>
+                    </div>
                 </form>
-                <p className="mt-3 text-center text-decoration-underline" onClick={navigateToLogin}>
+                <p className="mt-3 text-center text-decoration-underline" style={{ color: '#ffffff', fontWeight: 600 }} onClick={navigateToLogin}>
                     Already Have an Account?
                 </p>
                 <Link to="/login" className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none d-none">
@@ -81,6 +91,7 @@ const Register: React.FC = () => {
             </div>
         </div>
     );
+    
 };
 
 export default Register;

@@ -23,9 +23,13 @@ const ResetPassword: React.FC = () => {
     };
 
     return (
-        <div className="d-flex justify-content-center align-items-center vh-100">
-            <div className="bg-white p-3 rounded w-25">
-                <h2>Reset Password</h2>
+        <div className="d-flex justify-content-center align-items-center vh-100" style={{ position: 'relative', background: 'white', overflow: 'hidden', border: '1px black solid' }}>
+            <div className="p-3 rounded w-25" style={{
+                position: 'relative',
+                background: '#d8a45b', // Add your gradient colors here
+                overflow: 'hidden',
+            }}>
+                <h2 className="text-center" style={{ color: '#ffffff', fontWeight: 800 }}>Reset Password</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="password">
@@ -35,11 +39,11 @@ const ResetPassword: React.FC = () => {
                             type="password"
                             placeholder="Enter new password"
                             name="password"
-                            className="form-control rounded-0"
+                            className="form-control rounded-10"
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <button type="submit" className="btn btn-success w-100 rounded-0">
+                    <button type="submit" className="btn btn-success w-80 rounded-10">
                         Reset Password
                     </button>
                 </form>
