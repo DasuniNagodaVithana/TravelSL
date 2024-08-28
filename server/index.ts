@@ -65,9 +65,21 @@ app.post("/login", (req: Request, res: Response) => {
 // Register route
 app.post("/register", async (req: Request, res: Response) => {
   try {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10); // Hash the password
-    const employee = await EmployeeModel.create({ ...req.body, password: hashedPassword });
-    res.json(employee);
+    const { email, password, ...otherDetails } = req.body;
+
+    // Check if the email is already registered
+    const existingEmployee = await EmployeeModel.findOne({ email });
+    if (existingEmployee) {
+      return res.status(400).json({ Status: "Error", message: "You are already registered with this email" });
+    }
+
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create the new employee
+    const employee = await EmployeeModel.create({ ...otherDetails, email, password: hashedPassword });
+
+    res.status(201).json(employee);
   } catch (err) {
     if (err instanceof Error) {
       res.status(500).json({ Status: "Error", error: err.message });

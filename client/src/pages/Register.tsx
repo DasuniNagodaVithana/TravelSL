@@ -3,13 +3,12 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Register: React.FC = () => {
-    // Define state with proper types
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const [error, setError] = useState<string | null>(null); // State to store error messages
     const navigate = useNavigate();
 
-    // Define handleSubmit with the event type
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         axios.post('http://localhost:3001/register', { name, email, password })
@@ -17,10 +16,15 @@ const Register: React.FC = () => {
                 console.log(result);
                 navigate('/login');
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                if (err.response && err.response.status === 400) {
+                    setError(err.response.data.message); // Set error message from backend
+                } else {
+                    setError('An unexpected error occurred. Please try again.');
+                }
+            });
     };
 
-    // Define a function to navigate to the login page
     const navigateToLogin = () => {
         navigate('/login');
     };
@@ -30,10 +34,15 @@ const Register: React.FC = () => {
             className="d-flex justify-content-center align-items-center vh-100">
             <div className="p-3 rounded w-25" style={{
                 position: 'relative',
-                background: '#d8a45b', // Add your gradient colors here
+                background: '#d8a45b',
                 overflow: 'hidden',
             }}>
                 <h2 className="text-center" style={{ color: '#ffffff', fontWeight: 800 }}>Register</h2>
+                {error && (
+                    <div className="alert alert-danger" role="alert">
+                        {error}
+                    </div>
+                )}
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="name">
@@ -91,7 +100,6 @@ const Register: React.FC = () => {
             </div>
         </div>
     );
-    
 };
 
 export default Register;

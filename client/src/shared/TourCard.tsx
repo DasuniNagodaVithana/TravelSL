@@ -1,9 +1,10 @@
 import React from 'react';
 import { Card, CardBody } from 'reactstrap';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Link, useNavigate } from 'react-router-dom';
 import 'remixicon/fonts/remixicon.css';
 import './tour-card.css';
 
+// Define the interface for Tour
 interface Tour {
   _id: string;
   title: string;
@@ -15,18 +16,29 @@ interface Tour {
   reviews: { name: string; rating: number }[];
 }
 
+// Define the interface for TourCardProps
 interface TourCardProps {
   tour: Tour;
 }
 
+// Define the TourCard component
 const TourCard: React.FC<TourCardProps> = ({ tour }) => {
   const { _id, title, city, file, price, featured, avgRating } = tour;
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
+
+  // Function to check if the user is logged in
+  const isAuthenticated = () => {
+    return !!sessionStorage.getItem('userId');
+  };
 
   // Function to handle "Book Now" button click
   const handleBookNowClick = () => {
-    console.log("working")
-    navigate(`/tours/${_id}`); // Navigate to TourDetails page with tour ID
+    if (isAuthenticated()) {
+      navigate(`/tours/${_id}`);
+    } else {
+      alert("Please log in to view the full tour.");
+      navigate('/login'); // Navigate to the login page
+    }
   };
 
   return (
