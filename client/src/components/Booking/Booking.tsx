@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Form, FormGroup, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import './Booking.css';
 
@@ -29,8 +29,9 @@ interface BookingProps {
 
 const Booking: React.FC<BookingProps> = ({ tour }) => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
 
-  const { price } = tour;
+  const { price, title } = tour;
 
   const [guestSize, setGuestSize] = useState<number>(1);
   const [totalPrice, setTotalPrice] = useState<number>(price + 10);
@@ -104,7 +105,9 @@ const Booking: React.FC<BookingProps> = ({ tour }) => {
       });
       setGuestSize(1);
       setTotalPrice(price + 10);
-      alert('Booking submitted successfully!');
+
+      // Navigate to confirmation page
+      navigate(`/booking-confirmation?title=${title}&fullName=${fullName}&email=${email}&phone=${phone}&guestSize=${guestSize}&bookAt=${bookAt}&totalPrice=${totalPrice}`);
     } catch (error) {
       setFormError((error as Error).message);
     }
@@ -126,7 +129,7 @@ const Booking: React.FC<BookingProps> = ({ tour }) => {
             <input type="email" placeholder='Email' id="email" required onChange={handleChange} value={formData.email} />
           </FormGroup>
           <FormGroup>
-            <input type="number" placeholder='Phone' id="phone" required onChange={handleChange} value={formData.phone} />
+            <input type="text" placeholder='Phone' id="phone" required onChange={handleChange} value={formData.phone} />
           </FormGroup>
           <FormGroup className="d-flex align-items-center gap-3">
             <input type="date" id="bookAt" min={minDate} max={maxDate} required onChange={handleChange} value={formData.bookAt} />

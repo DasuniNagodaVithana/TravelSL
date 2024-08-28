@@ -12,6 +12,7 @@ import ResetPassword from '../pages/ResetPassword';
 import About from '../pages/About';
 import UserProfile from '../pages/UserProfile';
 import TourFullDetails from '../pages/TourFullDetails';
+import BookingConfirmation from '../pages/BookingConfirmation';
 
 const Routers = () => {
   return (
@@ -27,6 +28,7 @@ const Routers = () => {
       <Route path="/reset-password/:token" element={<ResetPassword />} />
       <Route path="/about" element={<About />} />
       <Route path="/user" element={<UserProfile />} />
+      <Route path="/booking-confirmation" element={<BookingConfirmation />} />
     </Routes>
   );
 };
