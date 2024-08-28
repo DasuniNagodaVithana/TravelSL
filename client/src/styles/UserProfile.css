@@ -84,6 +84,10 @@ header {
   background-color: #28a745;
   border-color: #28a745;
 }
+.buttons-container .btn-primary:hover {
+  background-color: #0d7826; /* A darker green for hover effect */
+  border-color: #1e7e34; /* Darker green border on hover */
+}
 
 /* Success button style */
 .buttons-container .btn-success {

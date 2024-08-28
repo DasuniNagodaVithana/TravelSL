@@ -381,7 +381,7 @@ app.post("/send-booking-email", (req: Request, res: Response) => {
     from: 'tourslusj@gmail.com',
     subject: 'Booking Confirmation',
     text: `Thank you for booking your trip to ${title}!\n\n` +
-      `Our Team will contact you soon\n` +
+      `Our Team will contact you soon!\n\n` +
       `Here are your booking details:\n` +
       `Full Name: ${fullName}\n` +
       `Phone: ${phone}\n` +
