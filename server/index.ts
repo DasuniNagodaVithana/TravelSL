@@ -372,6 +372,39 @@ app.get('/tours/search', async (req, res) => {
   }
 });
 
+//email for booking 
+app.post("/send-booking-email", (req: Request, res: Response) => {
+  const { email, title, fullName, phone, guestSize, bookAt, totalPrice } = req.body;
+
+  const mailOptions = {
+    to: email,
+    from: 'tourslusj@gmail.com',
+    subject: 'Booking Confirmation',
+    text: `Thank you for booking your trip to ${title}!\n\n` +
+      `Our Team will contact you soon\n` +
+      `Here are your booking details:\n` +
+      `Full Name: ${fullName}\n` +
+      `Phone: ${phone}\n` +
+      `Number of People: ${guestSize}\n` +
+      `Tour Date: ${bookAt}\n` +
+      `Total Cost: $${totalPrice}\n\n` +
+      `We look forward to seeing you on your trip!\n` +
+      `If you have any questions, feel free to contact us.\n\n` +
+      `Best Regards,\n` +
+      `SL Travel`
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error("Error sending email:", error);
+      res.status(500).json({ Status: "Error", message: "Failed to send email" });
+    } else {
+      res.status(200).json({ Status: "Success", message: "Booking confirmation sent" });
+    }
+  });
+});
+
+
 
 app.listen(3001, () => {
   console.log("Server is running on port 3001");

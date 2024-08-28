@@ -37,6 +37,7 @@ const TourCard: React.FC<TourCardProps> = ({ tour }) => {
       navigate(`/tours/${_id}`);
     } else {
       alert("Please log in to view the full tour.");
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to the top before navigating
       navigate('/login'); // Navigate to the login page
     }
   };

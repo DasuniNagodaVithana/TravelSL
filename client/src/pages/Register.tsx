@@ -91,7 +91,7 @@ const Register: React.FC = () => {
                         </button>
                     </div>
                 </form>
-                <p className="mt-3 text-center text-decoration-underline" style={{ color: '#ffffff', fontWeight: 600 }} onClick={navigateToLogin}>
+                <p className="mt-3 text-center text-decoration-underline" style={{ color: '#ffffff', fontWeight: 600,cursor: 'pointer' }} onClick={navigateToLogin}>
                     Already Have an Account?
                 </p>
                 <Link to="/login" className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none d-none">

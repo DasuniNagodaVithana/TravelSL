@@ -13,6 +13,7 @@ import About from '../pages/About';
 import UserProfile from '../pages/UserProfile';
 import TourFullDetails from '../pages/TourFullDetails';
 import BookingConfirmation from '../pages/BookingConfirmation';
+import Bookings from '../pages/Bookings';
 
 const Routers = () => {
   return (
@@ -29,6 +30,7 @@ const Routers = () => {
       <Route path="/about" element={<About />} />
       <Route path="/user" element={<UserProfile />} />
       <Route path="/booking-confirmation" element={<BookingConfirmation />} />
+      <Route path="/bookings" element={<Bookings />} />
     </Routes>
   );
 };

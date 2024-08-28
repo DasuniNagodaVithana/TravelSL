@@ -1,5 +1,5 @@
 import React from 'react';
-import './modal.css'; 
+import './ModalExample.css'; 
 interface ModalProps {
   message: string;
   onClose: () => void;

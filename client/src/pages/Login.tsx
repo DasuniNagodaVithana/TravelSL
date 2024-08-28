@@ -28,9 +28,9 @@ const Login: React.FC = () => {
     
                 // Navigate based on user role
                 if (role === "admin") {
-                    navigate('/home'); // Navigate to home page for admin
+                    navigate('/tours'); // Navigate to home page for admin
                 } else {
-                    navigate('/');     // Navigate to home page for users
+                    navigate('/tours');     // Navigate to home page for users
                 }
             } else {
                 setError("Login failed: " + Status); // Show error message
@@ -90,7 +90,7 @@ const Login: React.FC = () => {
                         </button>
                     </div>
                 </form>
-                <p className="mt-3 text-center text-decoration-underline" style={{ color: '#ffffff', fontWeight: 600 }} onClick={navigateToRegister}>
+                <p className="mt-3 text-center text-decoration-underline" style={{ color: '#ffffff', fontWeight: 600,cursor: 'pointer' }} onClick={navigateToRegister}>
                     Don't Have an Account?
                 </p>
                 <p className="text-center">

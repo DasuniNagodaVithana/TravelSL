@@ -116,7 +116,10 @@ const Tours: React.FC = () => {
                 {Array.from({ length: pageCount }, (_, number) => (
                   <span
                     key={number}
-                    onClick={() => setPage(number)}
+                    onClick={() => {
+                      setPage(number);
+                      window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to the top
+                    }}
                     className={page === number ? 'active__page' : ''}
                   >
                     {number + 1}

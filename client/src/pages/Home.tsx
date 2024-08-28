@@ -41,7 +41,7 @@ const Home = () => {
 
         <Col lg='2'>
         <div className='hero__img-box'>
-        <img src={'https://tours-s3-images.s3.eu-north-1.amazonaws.com/sigiriya.jpg'} alt=''/>
+        <img src={sigiriya} alt=''/>
         </div>
         </Col>
 
