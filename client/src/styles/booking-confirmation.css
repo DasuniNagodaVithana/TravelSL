@@ -1,0 +1,64 @@
+.booking-confirmation-container {
+  margin-top: 120px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.booking-confirmation-container h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 700;
+}
+
+.booking-confirmation-container .trip-title {
+  color: #16d833; /* Accent color for trip title */
+  font-weight: 800;
+  font-size: 2.2rem;
+}
+
+.booking-confirmation-container h4 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.booking-confirmation-container p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #666;
+  display: flex;
+  align-items: center;
+}
+
+.booking-confirmation-container p svg {
+  margin-right: 8px;
+  color: #007bff;
+}
+
+.booking-confirmation-container .countdown {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 20px;
+}
+
+.booking-confirmation-container .countdown p {
+  margin-right: 10px;
+}
+
+.booking-confirmation-container .countdown svg {
+  font-size: 1.5rem;
+  color: #d87a16;
+}
+
+.booking-confirmation-container .email-confirmation {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #007bff;
+  font-weight: 500;
+}

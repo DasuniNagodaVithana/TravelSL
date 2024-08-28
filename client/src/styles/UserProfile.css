@@ -1,0 +1,113 @@
+/* Ensure the body and html elements have no margins or padding */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Style for the header to ensure it stays at the top */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #fff; /* Adjust as needed */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: shadow effect */
+}
+
+/* Style for the user profile container */
+.user-profile-container {
+  max-width: 600px;
+  margin: 150px auto 50px auto; /* Adjust margin to position content correctly */
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Heading style */
+.user-profile-container h2 {
+  margin-bottom: 20px;
+  color: #343a40;
+  text-align: center;
+}
+
+/* Form style */
+.user-profile-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Individual form group style */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Label style */
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Input field style */
+.form-group input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+/* Disabled input field style */
+.form-group input.disabled-input {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+/* Button container style */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Button style */
+.buttons-container .btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+/* Primary button style */
+.buttons-container .btn-primary {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+.buttons-container .btn-primary:hover {
+  background-color: #0d7826; /* A darker green for hover effect */
+  border-color: #1e7e34; /* Darker green border on hover */
+}
+
+/* Success button style */
+.buttons-container .btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+/* Secondary button style */
+.buttons-container .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+/* Margin left adjustment for buttons */
+.buttons-container .ml-2 {
+  margin-left: 10px;
+}
+
+/* Text alignment and margin for success and error messages */
+.text-danger, .text-success {
+  margin-top: 10px;
+  text-align: center;
+}
