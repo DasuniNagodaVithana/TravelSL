@@ -11,7 +11,7 @@ const Register: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        axios.post('http://localhost:3001/register', { name, email, password })
+        axios.post('http://43.205.195.152:3001/register', { name, email, password })
             .then(result => {
                 console.log(result);
                 navigate('/login');

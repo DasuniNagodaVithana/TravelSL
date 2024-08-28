@@ -84,7 +84,7 @@ const Booking: React.FC<BookingProps> = ({ tour }) => {
     };
 
     try {
-      const response = await fetch('http://localhost:3001/userBookings', {
+      const response = await fetch('http://43.205.195.152:3001/userBookings', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

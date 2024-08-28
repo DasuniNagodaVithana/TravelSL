@@ -32,7 +32,7 @@ const SearchResultList: React.FC = () => {
         const distanceQuery = params.get('distance');
         const maxGroupSizeQuery = params.get('maxGroupSize');
 
-        const response = await axios.get('http://localhost:3001/tours/search', {
+        const response = await axios.get('http://43.205.195.152:3001/tours/search', {
           params: {
             location: locationQuery || undefined,
             distance: distanceQuery || undefined,

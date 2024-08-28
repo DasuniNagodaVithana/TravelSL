@@ -10,7 +10,7 @@ const ForgotPassword: React.FC = () => {
     // Define handleSubmit with the event type
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        axios.post('http://localhost:3001/forgot-password', { email })
+        axios.post('http://43.205.195.152:3001/forgot-password', { email })
         .then(res => {
             console.log(res);
             if(res.data.Status === "Success") {
