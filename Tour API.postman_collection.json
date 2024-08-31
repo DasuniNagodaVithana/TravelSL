@@ -1,0 +1,386 @@
+{
+	"info": {
+		"_postman_id": "9e1d773c-f697-48fc-ac90-5b7fde421ac2",
+		"name": "Tour API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30028174",
+		"_collection_link": "https://travelsl.postman.co/workspace/TravelSL-Workspace~f1e375b6-11ef-4272-abdd-1b441a414d5c/collection/30464458-9e1d773c-f697-48fc-ac90-5b7fde421ac2?action=share&source=collection_link&creator=30028174"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"item": [
+				{
+					"name": "http://localhost:3001/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"johndoe@example.com\",\r\n  \"password\": \"John@123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://43.205.195.152:3001/register",
+							"protocol": "http",
+							"host": [
+								"43",
+								"205",
+								"195",
+								"152"
+							],
+							"port": "3001",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Forgot Password",
+			"item": [
+				{
+					"name": "forgot-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"pramuamani@gmail.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://43.205.195.152:3001/forgot-password",
+							"protocol": "http",
+							"host": [
+								"43",
+								"205",
+								"195",
+								"152"
+							],
+							"port": "3001",
+							"path": [
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reset Password",
+			"item": [
+				{
+					"name": "http://localhost:3001/reset-password/7a94557b4da7e1f8896726b5e6ca29f4cfc12ef1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"Pramu@1234\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/reset-password/7a94557b4da7e1f8896726b5e6ca29f4cfc12ef1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"reset-password",
+								"7a94557b4da7e1f8896726b5e6ca29f4cfc12ef1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "http://localhost:3001/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"johndoe@example.com\",\r\n  \"password\": \"John@123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://43.205.195.152:3001/login",
+							"protocol": "http",
+							"host": [
+								"43",
+								"205",
+								"195",
+								"152"
+							],
+							"port": "3001",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Profile",
+			"item": [
+				{
+					"name": "GET UserProfile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://43.205.195.152:3001/profile?userId=66c9a91a061ee749a6bd5e8f",
+							"protocol": "http",
+							"host": [
+								"43",
+								"205",
+								"195",
+								"152"
+							],
+							"port": "3001",
+							"path": [
+								"profile"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "66c9a91a061ee749a6bd5e8f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscription",
+			"item": [
+				{
+					"name": "subscribe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"123@.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://43.205.195.152:3001/subscribe",
+							"protocol": "http",
+							"host": [
+								"43",
+								"205",
+								"195",
+								"152"
+							],
+							"port": "3001",
+							"path": [
+								"subscribe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tours",
+			"item": [
+				{
+					"name": "Add tour details",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "N88Rp-XeS/hanthana.jpg"
+								},
+								{
+									"key": "title",
+									"value": "Madhu Board tour",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Bentota",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Bentota",
+									"type": "text"
+								},
+								{
+									"key": "distance",
+									"value": "60",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "45",
+									"type": "text"
+								},
+								{
+									"key": "maxGroupSize",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "desc",
+									"value": "Boat ride to madhu river",
+									"type": "text"
+								},
+								{
+									"key": "startFrom",
+									"value": "Colombo",
+									"type": "text"
+								},
+								{
+									"key": "startTime",
+									"value": "9.00 a.m.",
+									"type": "text"
+								},
+								{
+									"key": "arrivalTime",
+									"value": "11.00 a.m.",
+									"type": "text"
+								},
+								{
+									"key": "departureCity",
+									"value": "Bentota",
+									"type": "text"
+								},
+								{
+									"key": "transportMode",
+									"value": "Car,Boat",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://43.205.195.152:3001/tours",
+							"protocol": "http",
+							"host": [
+								"43",
+								"205",
+								"195",
+								"152"
+							],
+							"port": "3001",
+							"path": [
+								"tours"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Featured Tours",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://43.205.195.152:3001/tours/featured/true",
+							"protocol": "http",
+							"host": [
+								"43",
+								"205",
+								"195",
+								"152"
+							],
+							"port": "3001",
+							"path": [
+								"tours",
+								"featured",
+								"true"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tour Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://43.205.195.152:3001/tours/66cb569065318f07ca3db124",
+							"protocol": "http",
+							"host": [
+								"43",
+								"205",
+								"195",
+								"152"
+							],
+							"port": "3001",
+							"path": [
+								"tours",
+								"66cb569065318f07ca3db124"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
